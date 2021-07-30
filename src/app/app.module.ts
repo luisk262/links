@@ -7,6 +7,7 @@ import { MenuComponent } from './shared/components/menu/menu.component';
 import { UrlComponent } from './shared/components/url/url.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ], 
   providers: [],
   bootstrap: [AppComponent]
