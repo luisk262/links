@@ -1,26 +1,33 @@
 <div class='container'>
-    <!-- <div class="box-logo">
-        <img src="assets/img/logo_transparent.png" alt="links">
-    </div> -->
-    <div class="info-dashboard">
-        <div class="user-info">
-            <img src="{{user.avatar}}" alt="profile" width="100px">
-            <p>{{user.name}}</p>
-            <p>{{user.email}}</p>
+    <section class="contain-header">
+        <div class="box-logo">
+            <img src="assets/img/logo_transparent.png" alt="links">
         </div>
-        <div class="body-new-link">
-            <form [formGroup]="registerLinkForm">
-                <label for="url">Url to Save</label>
-                <input type="text" formControlName="url" id="url">
-                <label for="nameUrl">Name of Url</label>
-                <input type="text" formControlName="nameUrl" id="nameUrl">
-                <button>add</button>
-            </form>
+    </section>
+
+    <section class="contain-body">
+        <div class="info-dashboard">
+            <div class="user-info">
+                <img src="{{user.avatar}}" alt="profile" width="100px">
+                <p>{{user.name}}</p>
+                <p>{{user.email}}</p>
+            </div>
+            <div class="box-right">
+                <div class="body-new-link">
+                    <form [formGroup]="registerLinkForm">
+                        <label for="url">Url to Save</label>
+                        <input type="text" formControlName="url" id="url">
+                        <label for="nameUrl">Name of Url</label>
+                        <input type="text" formControlName="nameUrl" id="nameUrl">
+                        <button>add</button>
+                    </form>
+                </div>
+                <div class="body-link">
+                    <app-url></app-url>
+                    <app-url></app-url>
+                    <app-url></app-url>
+                </div>
+            </div>
         </div>
-        <!-- <div class="body-link">
-            <app-url></app-url>
-            <app-url></app-url>
-            <app-url></app-url>
-        </div> -->
-    </div>
+    </section>
 </div>
