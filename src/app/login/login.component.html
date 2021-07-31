@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="center-info" *ngIf="false">
+    <div class="center-info" *ngIf="singUp">
         <div class="box-logo">
             <img src="" alt="">
         </div>
@@ -18,7 +18,7 @@
 
 
 
-    <div class="center-info" *ngIf="true">
+    <div class="center-info" *ngIf="!singUp">
         <div class="box-logo">
             <img src="" alt="">
         </div>
@@ -34,7 +34,7 @@
 
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
-                <button>signup</button>
+                <button (click)="login()">signup</button>
                 <p>By Creating account You agree to the <a href="">Terms of use</a> and <a href="">Privacy Policy</a>
                 </p>
             </div>
