@@ -1,18 +1,27 @@
-<div>
-    <div>
-        <img src="https://d500.epimg.net/cincodias/imagenes/2016/07/04/lifestyle/1467646262_522853_1467646344_noticia_normal.jpg"
-            alt="profile">
-        <p>Jeff Brown</p>
-        <p>jeff.brown@example.com</p>
+<div class='container'>
+    <div class="user-info">
+        <div class="box-logo">
+            <img src="assets/img/logo_transparent.png" alt="links">
+        </div>
+        <div class="box-user">
+            <img src="{{user.avatar}}"
+                alt="profile" width="100px">
+            <p>{{user.name}}</p>
+            <p>{{user.email}}</p>
+        </div>
     </div>
-    <div>
-        <label for="url">Url to Save</label>
-        <input type="text" name="url" id="url">
-        <label for="nameUrl">Name of Url</label>
-        <input type="text" name="nameUrl" id="nameUrl">
+    <div class="box-info">
+        <div class="body-new-link">
+            <label for="url">Url to Save</label>
+            <input type="text" name="url" id="url">
+            <label for="nameUrl">Name of Url</label>
+            <input type="text" name="nameUrl" id="nameUrl">
+            <button>add</button>
+        </div>
+        <div class="body-link">
+            <app-url></app-url>
+            <app-url></app-url>
+            <app-url></app-url>
+        </div>
     </div>
-    <button>add</button>
-    <app-url></app-url>
-    <app-url></app-url>
-    <app-url></app-url>
 </div>

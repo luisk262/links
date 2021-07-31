@@ -23,4 +23,18 @@ export class LinkService {
         return res.body;
       })
   }
+  getUserInfo() {
+    return this.http.get(URIS.get.getUser, { observe: 'response' }).toPromise()
+      .then((res: HttpResponse<any>) => {
+        return res.body;
+      })
+  }
+
+  getLinks() {
+    return this.http.get(URIS.get.getLinks, { observe: 'response' }).toPromise()
+      .then((res: HttpResponse<any>) => {
+        console.log('resultado',res);
+        return res;
+      })
+  }
 }
