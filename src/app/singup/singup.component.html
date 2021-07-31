@@ -6,18 +6,18 @@
         </div>
         <div class="box-info-singup">
             <div class="center-box-info">
-                <form [formGroup]="loginForm" (submit)="doLogin()">
+                <form [formGroup]="singupForm" (submit)="doSingUp()">
                     <h2>Signup</h2>
 
                     <label for="name">Full Name</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" formControlName="name" id="name">
 
                     <label for="email">Your Email</label>
-                    <input type="email" name="email" id="email">
+                    <input type="email" formControlName="email" id="email">
 
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password">
-                    <button [disabled]="true">signup</button>
+                    <input type="password" formControlName="password" id="password">
+                    <button [disabled]="singupForm.invalid">signup</button>
                     <p>By Creating account You agree to the <a href="">Terms of use</a> and <a href="">Privacy
                             Policy</a>
                     </p>

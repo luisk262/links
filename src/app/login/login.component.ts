@@ -11,7 +11,7 @@ import { MenuService } from '../shared/services/menu.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   loginForm: FormGroup;
 
@@ -30,9 +30,6 @@ export class LoginComponent implements OnInit {
       title: 'SINGUP',
       url: 'singup'
     });
-  }
-  ngOnInit() {
-
   }
 
   doLogin(): void {

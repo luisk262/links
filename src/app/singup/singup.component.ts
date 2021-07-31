@@ -12,8 +12,7 @@ import { MenuService } from '../shared/services/menu.service';
 })
 export class SingUpComponent {
 
-  public singUp = true;
-  loginForm: FormGroup;
+  singupForm: FormGroup;
 
   constructor(
     private linkService: LinkService,
@@ -21,7 +20,8 @@ export class SingUpComponent {
     private authService: AuthService,
     private menuService: MenuService) {
 
-    this.loginForm = new FormGroup({
+    this.singupForm = new FormGroup({
+      'name': new FormControl('', [Validators.required]),
       'email': new FormControl('', [Validators.required]),
       'password': new FormControl('', [Validators.required])
     });
@@ -34,17 +34,19 @@ export class SingUpComponent {
 
   }
 
-  doLogin(): void {
+  doSingUp(): void {
 
-    if (this.loginForm.valid) {
-      this.linkService.postLogin({
-        email: this.loginForm.controls.email.value,
-        password: this.loginForm.controls.password.value
-      }).then(({ token }) => {
-        if (token) {
-          this.setSession(token)
+    if (this.singupForm.valid) {
+      this.linkService.postSingUp({
+        name: this.singupForm.controls.name.value,
+        email: this.singupForm.controls.email.value,
+        password: this.singupForm.controls.password.value
+      }).then(({ id }) => {
+        console.log('---->result', id);
+        if (id == "1") {
+          this.router.navigateByUrl('/');
         } else {
-          console.log('Credenciales invalidas');
+          console.log('Registro invalido');
         }
       });
     }
