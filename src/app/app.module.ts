@@ -8,6 +8,8 @@ import { UrlComponent } from './shared/components/url/url.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SingUpComponent } from './singup/singup.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     UrlComponent,
     LoginComponent,
+    SingUpComponent,
     DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ], 
   providers: [],
   bootstrap: [AppComponent]

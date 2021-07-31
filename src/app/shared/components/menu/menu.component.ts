@@ -1,16 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MenuService } from '../../services/menu.service';
+
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
-
-  constructor() { }
-  public login = false;
-
-  ngOnInit(): void {
-  }
-
+export class MenuComponent {
+  constructor(public menuService: MenuService) { }
 }

@@ -1,43 +1,22 @@
 <div class="container">
-    <div class="center-info" *ngIf="singUp">
-        <div class="box-logo">
-            <img src="" alt="">
-        </div>
-        <div class="box-info">
-            <div class="center-box-info">
-                <h2>Login</h2>
-                <label for="email">Your Email</label>
-                <input type="email" name="email" id="email">
 
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-                <button (click)="login()">Login</button>
+    <div class="center-info">
+        <div class="box-logo">
+            <img src="assets/img/logo_transparent.png" alt="links">
+        </div>
+        <div class="box-info-login">
+            <div class="center-box-info">
+                <form [formGroup]="loginForm" (submit)="doLogin()">
+                    <h2>Login</h2>
+                    <label for="email">Your Email</label>
+                    <input type="email" formControlName="email" id="email">
+
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" id="password">
+                    <button [disabled]="loginForm.invalid">Login</button>
+                </form>
+
             </div>
         </div>
     </div>
-
-
-
-    <div class="center-info" *ngIf="!singUp">
-        <div class="box-logo">
-            <img src="" alt="">
-        </div>
-        <div class="box-info-2">
-            <div class="center-box-info">
-                <h2>Signup</h2>
-
-                <label for="name">Full Name</label>
-                <input type="text" name="name" id="name">
-
-                <label for="email">Your Email</label>
-                <input type="email" name="email" id="email">
-
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-                <button (click)="login()">signup</button>
-                <p>By Creating account You agree to the <a href="">Terms of use</a> and <a href="">Privacy Policy</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
+</div>º
