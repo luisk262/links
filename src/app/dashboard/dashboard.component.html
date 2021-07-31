@@ -1,15 +1,13 @@
 <div class='container'>
-    <div class="user-info">
-        <div class="box-logo">
-            <img src="assets/img/logo_transparent.png" alt="links">
-        </div>
-        <div class="box-user">
+    <!-- <div class="box-logo">
+        <img src="assets/img/logo_transparent.png" alt="links">
+    </div> -->
+    <div class="info-dashboard">
+        <div class="user-info">
             <img src="{{user.avatar}}" alt="profile" width="100px">
             <p>{{user.name}}</p>
             <p>{{user.email}}</p>
         </div>
-    </div>
-    <div class="box-info">
         <div class="body-new-link">
             <form [formGroup]="registerLinkForm">
                 <label for="url">Url to Save</label>
@@ -19,10 +17,10 @@
                 <button>add</button>
             </form>
         </div>
-        <div class="body-link">
+        <!-- <div class="body-link">
             <app-url></app-url>
             <app-url></app-url>
             <app-url></app-url>
-        </div>
+        </div> -->
     </div>
 </div>
