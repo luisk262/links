@@ -39,6 +39,7 @@ export class LoginComponent {
         email: this.loginForm.controls.email.value,
         password: this.loginForm.controls.password.value
       }).then(({ token }) => {
+        console.log('---->[login][Respone]', token);
         if (token) {
           this.setSession(token)
         } else {

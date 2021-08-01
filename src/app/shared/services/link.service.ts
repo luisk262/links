@@ -24,12 +24,14 @@ export class LinkService {
         return res.body;
       })
   }
+  
   postSingUp(singUpData: ISingUpData) {
     return this.http.post(URIS.post.singUp, singUpData, { observe: 'response' }).toPromise()
       .then((res: HttpResponse<any>) => {
         return res.body;
       })
   }
+
   getUserInfo() {
     return this.http.get(URIS.get.getUser, { observe: 'response' }).toPromise()
       .then((res: HttpResponse<any>) => {
@@ -51,6 +53,7 @@ export class LinkService {
 
       })
   }
+
   postLink(link: ILinkData) {
     return this.http.post(URIS.post.createLink, link, { observe: 'response', headers: this.headers, responseType: 'text' }).toPromise()
       .then((res: HttpResponse<any>) => {

@@ -34,24 +34,33 @@ export class DashboardComponent implements OnInit {
     this.getUser();
     this.getLinks();
   }
+
   getUser() {
     this.linkService.getUserInfo().then((user) => {
       this.user = user;
     })
   }
+
   getLinks() {
     this.linkService.getLinks().then((links: any) => {
+      console.log('---->[getLinks]][Respone]', links);
       this.links = links.name;
     });
   }
+
   setNewLink() {
 
     this.linkService.postLink({
       url: this.registerLinkForm.controls.url.value,
       name: this.registerLinkForm.controls.name.value
     }).then((link) => {
+      console.log('---->[RegisterLink]][Respone]', link);
       this.links.push(link.name);
     })
+  }
 
+  deleteLink(link: any) {
+    const l = this.links.findIndex(x => x.id === link.name.id);
+    l !== -1 && this.links.splice(l, 1);
   }
 }

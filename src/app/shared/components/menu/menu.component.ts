@@ -10,9 +10,11 @@ import { MenuService } from '../../services/menu.service';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
+
   constructor(public menuService: MenuService, private router: Router, private auth:AuthService) { }
 
   navigate() {
+    
     if (this.menuService.getMenu.url == 'logout') {
       this.auth.closeSession();
       this.router.navigate(['/']);

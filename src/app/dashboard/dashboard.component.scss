@@ -110,6 +110,9 @@
         cursor: pointer;
         display: block;
       }
+      button:disabled{
+        background-color: #4DA3FF;
+      }
 
     }
 

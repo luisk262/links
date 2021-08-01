@@ -37,22 +37,24 @@ export class SingUpComponent {
   doSingUp(): void {
 
     if (this.singupForm.valid) {
+
       this.linkService.postSingUp({
         name: this.singupForm.controls.name.value,
         email: this.singupForm.controls.email.value,
         password: this.singupForm.controls.password.value
       }).then(({ id }) => {
-        console.log('---->result', id);
+        console.log('---->[signup][Respone]', id);
         if (id == "1") {
           this.router.navigateByUrl('/');
         } else {
-          console.log('Registro invalido');
+           alert('Registro Invalido');
         }
       });
     }
   }
 
   setSession(token: string) {
+    
     this.authService.setAuthToken = token;
     this.router.navigateByUrl('dashboard');
 

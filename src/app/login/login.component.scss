@@ -89,6 +89,10 @@
         cursor: pointer;
         display: block;
       }
+      
+      button:disabled{
+        background-color: #4DA3FF;
+      }
 
       p {
         width: 264px;

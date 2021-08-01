@@ -25,6 +25,7 @@
         margin: auto;
       }
     }
+
     .box-info-singup {
       width: 560px;
       height: 592px;
@@ -89,6 +90,10 @@
         display: block;
       }
 
+      button:disabled {
+        background-color: #4DA3FF;
+      }
+
       p {
         width: 264px;
         display: block;
@@ -100,8 +105,8 @@
         margin-top: 24px;
 
         a {
-            color:#007AFF;
-            text-decoration: none;
+          color: #007AFF;
+          text-decoration: none;
         }
       }
 
