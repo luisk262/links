@@ -4,6 +4,7 @@ import { URIS } from '../constants/uris';
 import { ILoginData } from '../interfaces/login.interface';
 import { ISingUpData } from '../interfaces/singup.interface';
 import { ILinkData } from '../interfaces/link.interface';
+import jsonrepair from 'jsonrepair';
 
 @Injectable({
   providedIn: 'root'
@@ -39,26 +40,40 @@ export class LinkService {
   getLinks() {
     return this.http.get(URIS.get.getLinks, { observe: 'response', headers: this.headers, responseType: 'text' }).toPromise()
       .then((res: HttpResponse<any>) => {
-        let body = res.body;
+        /* Esto no se hace, pero como el json de ejemplo esta mal formado, 
+        se realizo un parche, para poder usar la solicitud"*/
+
+        let body = '{' + res.body + '}';
         body = body.replace('name', '"name":');
-        let json = JSON.stringify(body);
-        json = json.replace('/(\r\n|\n|\r)/gm','');
-        json = json.replace(`,\n]`,']');
+        body = body.replace(`},\n]`, '}\n]');
 
-        //json = JSON.parse(json);
-        //console.log('asdsdsa', typeof json);
-        console.log('aaa--------',json);
-        json = JSON.parse(json);
-        console.log('aaa222--------',json);
-
-        return res.body;
+        return JSON.parse(String(body));
 
       })
   }
   postLink(link: ILinkData) {
     return this.http.post(URIS.post.createLink, link, { observe: 'response', headers: this.headers, responseType: 'text' }).toPromise()
       .then((res: HttpResponse<any>) => {
-        return res.body;
+        /* Esto no se hace, pero como el json de ejemplo esta mal formado, 
+       se realizo un parche, para poder usar la solicitud"*/
+
+        let body = '{' + res.body + '}';
+        body = body.replace('name', '"name":');
+        body = body.replace(`},\n]`, '}\n]');
+        return JSON.parse(String(body));
+      })
+  }
+
+  deleteLink(id: string | undefined) {
+    return this.http.delete(`${URIS.delete.deleteLink}/${id}`, { observe: 'response', headers: this.headers, responseType: 'text' }).toPromise()
+      .then((res: HttpResponse<any>) => {
+        /* Esto no se hace, pero como el json de ejemplo esta mal formado, 
+       se realizo un parche, para poder usar la solicitud"*/
+
+        let body = '{' + res.body + '}';
+        body = body.replace('name', '"name":');
+        body = body.replace(`},\n]`, '}\n]');
+        return JSON.parse(String(body));
       })
   }
 }

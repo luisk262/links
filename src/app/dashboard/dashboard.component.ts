@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 
     this.menuService.setMenu({
       title: 'logout',
-      url: '/'
+      url: 'logout'
     });
   }
 
@@ -40,33 +40,17 @@ export class DashboardComponent implements OnInit {
     })
   }
   getLinks() {
-    this.linkService.getLinks().then((links:any) => {
-      for(var i in links){
-        console.log('---->',links[i])
-      }
-                
-      links.forEach((link:any)=>{
-        console.log('linkkk',link);
-      });
-
-      this.links = links;
-      console.log('link--->',links);
-      console.log('link--->',JSON.parse(JSON.stringify(links)));
-    
-      
-      
-    //console.log(JSON.parse(JSON.stringify(links)));
-      //this.links = links;
+    this.linkService.getLinks().then((links: any) => {
+      this.links = links.name;
     });
   }
   setNewLink() {
-    const link: ILinkData = {
-      url: '',
-      name: 'dsad'
 
-    }
-    this.linkService.postLink(link).then((result) => {
-      console.log('result', result);
+    this.linkService.postLink({
+      url: this.registerLinkForm.controls.url.value,
+      name: this.registerLinkForm.controls.name.value
+    }).then((link) => {
+      this.links.push(link.name);
     })
 
   }

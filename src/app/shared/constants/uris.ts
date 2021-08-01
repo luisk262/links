@@ -9,6 +9,6 @@ export const URIS = {
         getLinks: 'https://private-anon-cd390202b0-henrybravo.apiary-mock.com/links',
     },
     delete: {
-        deleteLink: 'https://private-anon-cd390202b0-henrybravo.apiary-mock.com/links/id'
+        deleteLink: 'https://private-anon-cd390202b0-henrybravo.apiary-mock.com/links/'
     }
 }
