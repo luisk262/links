@@ -4,7 +4,6 @@ import { URIS } from '../constants/uris';
 import { ILoginData } from '../interfaces/login.interface';
 import { ISingUpData } from '../interfaces/singup.interface';
 import { ILinkData } from '../interfaces/link.interface';
-import jsonrepair from 'jsonrepair';
 
 @Injectable({
   providedIn: 'root'
