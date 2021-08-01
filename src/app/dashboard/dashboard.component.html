@@ -14,16 +14,16 @@
             </div>
             <div class="box-right">
                 <div class="body-new-link">
-                    <form [formGroup]="registerLinkForm">
+                    <form [formGroup]="registerLinkForm" (submit)="setNewLink()">
                         <label for="url">Url to Save</label>
                         <input type="text" formControlName="url" id="url">
-                        <label for="nameUrl">Name of Url</label>
-                        <input type="text" formControlName="nameUrl" id="nameUrl">
+                        <label for="name">Name of Url</label>
+                        <input type="text" formControlName="name" id="name">
                         <button>add</button>
                     </form>
                 </div>
                 <div class="body-link">
-                    <app-url></app-url>
+                    <app-url *ngFor="let link of this.links"></app-url>
                     <app-url></app-url>
                     <app-url></app-url>
                 </div>
